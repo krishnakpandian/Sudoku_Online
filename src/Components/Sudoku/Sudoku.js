@@ -1,12 +1,33 @@
 import React, {Component} from 'react';
-import { makepuzzle, solvepuzzle, ratepuzzle } from "sudoku";
+import { makepuzzle, solvepuzzle } from "sudoku";
+import './Sudoku.scss'
 import Square from '../Square/Square.js';
 class Sudoku extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            board: null,
-            solution: null
+            board: [
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','','']
+            ],
+            solution: [
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','','']
+            ]
         }
     }
     async componentDidMount() {
@@ -16,7 +37,11 @@ class Sudoku extends Component {
         console.log(this.state.board);
         console.log(this.state.solution);
     }
-    handleSquareChange(i,j) {
+    handleSquareChange(i,j, value) {
+        console.log(this.state)
+        //let copyValues = this.state.board.slice()
+        //copyValues[i][j] = value
+        //this.setState({ board: copyValues});
     }
     render() {
 
@@ -24,7 +49,14 @@ class Sudoku extends Component {
             <>
 			  <div>
                 Board
-                
+                <Square
+                editable = {false}
+                rowIndex = {0}
+                colIndex = {0}
+                correctValue = {1}
+                handleSquareChange = {this.handleSquareChange}
+                board= {this.state.board}
+                />
               </div>
             </>
 		);

@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-
+import './Square.scss'
 class Square extends Component {
-
+    
 	generateSquareContent = () => {
+        const board = this.props.board;
 		const editable = !this.props.editable;
 		const squareValue = this.props.value !== null ? ""   : this.props.value;
 		const row = this.props.rowIndex;
         const col = this.props.colIndex;
         const correct = this.props.correct;
-        
+        console.log(board);
 
 		return (
             <>
               <div class = "box">
               <input 
-                class = "Square"
-                style = {correct}
+                class = "square"
+                //style = {correct}
                 type  = "text"
-                value = {squareValue}
-                disabled = {editable}
+                value = {board[row][col]}
+                disabled = {!editable}
                 onChange = {this.handleSquareValueChange}/>
               </div>
 			</>
@@ -30,7 +31,7 @@ class Square extends Component {
 		if(this.isValidInput(newSquareValue)) {
 			const row = this.props.rowIndex;
 			const col = this.props.colIndex;
-			this.props.onValueChange(row, col, newSquareValue);			
+			this.props.handleSquareChange(row, col, newSquareValue);			
 		}
 	}
 
