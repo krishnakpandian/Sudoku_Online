@@ -5,9 +5,9 @@ class Square extends Component {
 	generateSquareContent = () => {
         const board = this.props.board;
 		const editable = !this.props.editable;
-		const squareValue = this.props.value !== null ? ""   : this.props.value;
 		const row = this.props.rowIndex;
-        const col = this.props.colIndex;
+		const col = this.props.colIndex;
+		const squareValue = this.props.value !== null ? ""   : board[row][col];
         const correct = this.props.correct;
         console.log(board);
 
@@ -18,7 +18,7 @@ class Square extends Component {
                 class = "square"
                 //style = {correct}
                 type  = "text"
-                value = {board[row][col]}
+                value = {squareValue}
                 disabled = {!editable}
                 onChange = {this.handleSquareValueChange}/>
               </div>

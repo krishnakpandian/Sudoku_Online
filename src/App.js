@@ -1,17 +1,26 @@
 import React from 'react';
 import './App.css';
-import {HashRouter as Router, Switch, Link} from 'react-router-dom';
+import {HashRouter as Router, Switch, Link, Route} from 'react-router-dom';
 import Header from './Components/Header/Header.js';
 import Footer from './Components/Footer/Footer.js';
 import Sudoku from './Components/Sudoku/Sudoku.js';
+import Join from './Components/Join/Join.js';
 function App() {
   return (
     <>
       <div>
-        <Header/>
-        Hello World
-        <Sudoku/>
-        <Footer/>
+      <Router>
+          <Header/>
+          <Switch>
+            <Route path="/offline">
+              <Sudoku/>
+            </Route>
+            <Route path="/online">
+              <Join/>
+            </Route>
+          </Switch>
+          <Footer/>
+      </Router>
       </div>
     </>
   );
