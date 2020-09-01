@@ -6,9 +6,11 @@ const Header = () => {
         <>
             <div class="header-container">
                 <header>
-                    Header
-                    <button><Link to="/offline">Offline </Link></button>
-                    <button><Link to="/online">Offline </Link></button>
+                    <div class="title">Header</div>
+                    <div class = "buttons">
+                        <button><Link to="/offline">Offline </Link></button>
+                        <button><Link to="/online">Online </Link></button>
+                    </div>
                 </header>
             </div>
         </>
