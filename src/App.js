@@ -20,7 +20,7 @@ function App() {
               <Join/>
             </Route>
           </Switch>
-          <Chat/>
+          <Chat name="krishna"/>
           <Footer/>
       </Router>
       </div>
