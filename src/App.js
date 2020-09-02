@@ -5,6 +5,7 @@ import Header from './Components/Header/Header.js';
 import Footer from './Components/Footer/Footer.js';
 import Sudoku from './Components/Sudoku/Sudoku.js';
 import Join from './Components/Join/Join.js';
+import Chat from './Components/Chat/Chat.js';
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
               <Join/>
             </Route>
           </Switch>
+          <Chat/>
           <Footer/>
       </Router>
       </div>
