@@ -15,9 +15,12 @@ const Join = () => {
                 <div class="header">
                     Join an Online Game
                 </div>
-                <input type="text" onChange={event => setName(event.target.value)}/>
-                <input type="text"onChange={event => setRoom(event.target.value)}/>
-                <button><Link to={<Chat/>}>Join</Link></button>
+                <label for="name">Name</label>
+                <input type="text" name = "name" onChange={event => setName(event.target.value)}/>
+                
+                <label for="room">Room</label>
+                <input type="text" name="room" onChange={event => setRoom(event.target.value)}/>
+                <button onClick ={<Link to={<Chat name="name"/>}></Link> && name !==""} > Join</button>
             </div>
         </>
     );
