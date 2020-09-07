@@ -17,10 +17,10 @@ const Join = () => {
                 </div>
                 <label for="name">Name</label>
                 <input type="text" name = "name" onChange={event => setName(event.target.value)}/>
-                
+
                 <label for="room">Room</label>
                 <input type="text" name="room" onChange={event => setRoom(event.target.value)}/>
-                <button onClick ={<Link to={<Chat name="name"/>}></Link> && name !==""} > Join</button>
+                <button><Link onClick={e => (!name || !room) ? e.preventDefault() : null} to={`/online?name=${name}&room=${room}`}> Join </Link></button>
             </div>
         </>
     );

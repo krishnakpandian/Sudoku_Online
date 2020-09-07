@@ -8,8 +8,7 @@ const Header = () => {
                 <header>
                     <div class="title">Header</div>
                     <div class = "buttons">
-                        <button><Link to="/offline">Offline </Link></button>
-                        <button><Link to="/online">Online </Link></button>
+                        <button><Link to="/join">Home</Link></button>
                     </div>
                 </header>
             </div>

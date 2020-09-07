@@ -13,15 +13,14 @@ function App() {
       <Router>
           <Header/>
           <Switch>
-            <Route path="/offline">
-              <Sudoku/>
-            </Route>
             <Route path="/online">
+              <Sudoku/>
+              <Chat name="krishna"/>
+            </Route>
+            <Route path="/join">
               <Join/>
             </Route>
           </Switch>
-          <Join/>
-          <Chat name="krishna"/>
           <Footer/>
       </Router>
       </div>
