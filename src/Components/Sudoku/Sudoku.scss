@@ -1,8 +1,9 @@
 .sudoku-container {
-    width: 90vw;
+    width: 75vw;
     .board {
         display:flex;
         flex-direction: row;
         flex-wrap: wrap;
+        align-items: center;
     }
 }

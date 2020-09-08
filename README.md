@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+
+## Installation
+
+Check your version of Node.js and React
+
+```bash
+git clone 'https://github.com/krishnakpandian/Sudoku_Online'
+npm install
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
