@@ -47,16 +47,27 @@ class Sudoku extends Component {
 
 		return (
             <>
-			  <div>
+			  <div class="sudoku-container">
                 Board
-                <Square
-                editable = {false}
-                rowIndex = {0}
-                colIndex = {0}
-                correctValue = {1}
-                handleSquareChange = {this.handleSquareChange}
-                board= {this.state.board}
-                />
+                <div class="board">
+                {
+                    this.state.board.map( (value,row) => {
+                        console.log(row%9, row)
+                        return(
+                            <>
+                            <Square
+                            editable = {false}
+                            rowIndex = {row % 9}
+                            colIndex = {row}
+                            correctValue = {value}
+                            handleSquareChange = {this.handleSquareChange}
+                            board= {this.state.board}
+                            />
+                            </>
+                        )
+                    })
+                }
+                </div>
               </div>
             </>
 		);
