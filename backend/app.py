@@ -17,6 +17,7 @@ def create():
         e.g. json={'id': '1', 'title': 'Write a blog post'}
     """
     try:
+        print(request)
         messages = request.json['messages']
         todo_ref.document().set(request.json)
         return jsonify({"success": True}), 200
