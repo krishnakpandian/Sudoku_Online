@@ -7,16 +7,25 @@ class Square extends Component {
 		const editable = !this.props.editable;
 		const row = this.props.rowIndex;
 		const col = this.props.colIndex;
-		const squareValue = this.props.value !== null ? ""   : board[row][col];
-        const correct = this.props.correct;
-        console.log(board);
+		//console.log(board[row][col])
+		const squareValue = (board[row]=== null) ? "":board[row];
+		const solution = this.props.solution[row];
+		const correct = solution == squareValue
+        //console.log(squareValue);
 
 		return (
             <>
               <div class = "box">
               <input 
                 class = "square"
-                //style = {correct}
+				style = {{
+					"color": correct ? null:'red',
+					"border-top-width": 'thin',
+					"border-right-width": 'thin',
+					"border-left-width": 'thin',
+					"border-bottom-width": 'thin',
+				}}
+				pattern="[0-9]*"
                 type  = "text"
                 value = {squareValue}
                 disabled = {!editable}
@@ -31,7 +40,7 @@ class Square extends Component {
 		if(this.isValidInput(newSquareValue)) {
 			const row = this.props.rowIndex;
 			const col = this.props.colIndex;
-			this.props.handleSquareChange(row, col, newSquareValue);			
+			this.props.handleSquareChange(row, newSquareValue);			
 		}
 	}
 

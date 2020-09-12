@@ -27,21 +27,22 @@ class Sudoku extends Component {
                 ['','','','','','','','',''],
                 ['','','','','','','','',''],
                 ['','','','','','','','','']
-            ]
+            ],
+            errors: 0
         }
+        this.handleSquareChange = this.handleSquareChange.bind(this);
     }
     async componentDidMount() {
         var puzzle = makepuzzle()
         var solution = solvepuzzle(puzzle)
         await this.setState({board: puzzle, solution: solution});
-        console.log(this.state.board);
-        console.log(this.state.solution);
+        //console.log(this.state.board);
+        //console.log(this.state.solution);
     }
-    handleSquareChange(i,j, value) {
-        console.log(this.state)
-        //let copyValues = this.state.board.slice()
-        //copyValues[i][j] = value
-        //this.setState({ board: copyValues});
+    handleSquareChange(i, value) {
+        let copyValues = this.state.board.slice()
+        copyValues[i] = value
+        this.setState({ board: copyValues});
     }
     render() {
 
@@ -52,16 +53,17 @@ class Sudoku extends Component {
                 <div class="board">
                 {
                     this.state.board.map( (value,row) => {
-                        console.log(row%9, row)
+                        //console.log(row%9, row)
                         return(
                             <>
                             <Square
                             editable = {false}
-                            rowIndex = {row % 9}
+                            rowIndex = {row}
                             colIndex = {row}
                             correctValue = {value}
                             handleSquareChange = {this.handleSquareChange}
                             board= {this.state.board}
+                            solution= {this.state.solution}
                             />
                             </>
                         )
