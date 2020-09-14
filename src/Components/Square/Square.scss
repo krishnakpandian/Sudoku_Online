@@ -1,6 +1,11 @@
 .box {
+    input, [contenteditable] {
+        caret-color: blue;
+      }
     input.square {
         height: 8vw;
         width: 8vw;
+        text-align:center;
+        font-size: 3vw;
     }
 }

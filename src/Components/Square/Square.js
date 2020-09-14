@@ -6,12 +6,9 @@ class Square extends Component {
         const board = this.props.board;
 		const editable = !this.props.editable;
 		const row = this.props.rowIndex;
-		const col = this.props.colIndex;
-		//console.log(board[row][col])
 		const squareValue = (board[row]=== null) ? "":board[row];
 		const solution = this.props.solution[row];
 		const correct = solution == squareValue
-        //console.log(squareValue);
 
 		return (
             <>
@@ -25,7 +22,7 @@ class Square extends Component {
 					"border-left-width": 'thin',
 					"border-bottom-width": 'thin',
 				}}
-				pattern="[0-9]*"
+				pattern="[1-9]*"
                 type  = "text"
                 value = {squareValue}
                 disabled = {!editable}

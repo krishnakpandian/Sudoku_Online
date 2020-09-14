@@ -17,6 +17,17 @@ class Sudoku extends Component {
                 ['','','','','','','','',''],
                 ['','','','','','','','','']
             ],
+            initial: [
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','',''],
+                ['','','','','','','','','']
+            ],
             solution: [
                 ['','','','','','','','',''],
                 ['','','','','','','','',''],
@@ -28,14 +39,28 @@ class Sudoku extends Component {
                 ['','','','','','','','',''],
                 ['','','','','','','','','']
             ],
+            page: 0,
             errors: 0
         }
         this.handleSquareChange = this.handleSquareChange.bind(this);
     }
     async componentDidMount() {
-        var puzzle = makepuzzle()
-        var solution = solvepuzzle(puzzle)
-        await this.setState({board: puzzle, solution: solution});
+        var temppuzzle = makepuzzle()
+        var tempsolution = solvepuzzle(temppuzzle)
+        
+        var puzzle = temppuzzle.map((item)  => { 
+            if (item != null){
+                return item + 1
+            }
+            return null; 
+        });
+        var solution = tempsolution.map((item)  => { 
+            if (item != null){
+                return item + 1
+            }
+            return null; 
+        });
+        await this.setState({board: puzzle, solution: solution, initial: puzzle});
         //console.log(this.state.board);
         //console.log(this.state.solution);
     }
@@ -44,6 +69,16 @@ class Sudoku extends Component {
         copyValues[i] = value
         this.setState({ board: copyValues});
     }
+
+    submitBoard() {
+        if (this.state.board == this.state.solution) {
+            console.log("You Win")
+        }
+        else {
+            console.log("You Lose")
+        }
+    }
+
     render() {
 
 		return (
@@ -51,7 +86,7 @@ class Sudoku extends Component {
 			  <div class="sudoku-container">
                 Board
                 <div class="board">
-                {
+                { this.state.board !== this.state.solution ?
                     this.state.board.map( (value,row) => {
                         //console.log(row%9, row)
                         return(
@@ -59,8 +94,8 @@ class Sudoku extends Component {
                             <Square
                             editable = {false}
                             rowIndex = {row}
-                            colIndex = {row}
                             correctValue = {value}
+                            editable = {this.state.initial[row] !== null}
                             handleSquareChange = {this.handleSquareChange}
                             board= {this.state.board}
                             solution= {this.state.solution}
@@ -68,7 +103,12 @@ class Sudoku extends Component {
                             </>
                         )
                     })
+                    :
+                    <div class="finished"> You Won</div>
                 }
+                <button onClick = {this.submitBoard}> Submit Board</button>
+
+
                 </div>
               </div>
             </>
