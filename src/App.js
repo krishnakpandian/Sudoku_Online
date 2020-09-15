@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer.js';
 import Sudoku from './Components/Sudoku/Sudoku.js';
 import Join from './Components/Join/Join.js';
 import Chat from './Components/Chat/Chat.js';
+import FirebaseLogin from './Components/Firebase/FirebaseLogin.js';
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
               <Chat name="krishna"/>
             </Route>
             <Route path="/join">
+              <FirebaseLogin/>
               <Join/>
             </Route>
           </Switch>
