@@ -17,10 +17,10 @@ class Square extends Component {
                 class = "square"
 				style = {{
 					"color": correct ? null:'red',
-					"border-top-width": 'thin',
-					"border-right-width": 'thin',
-					"border-left-width": 'thin',
-					"border-bottom-width": 'thin',
+					"border-top-width": row % 27 < 9 ? 'thick': 'thin',
+					"border-right-width": row % 3 == 2 ? 'thick':'thin',
+					"border-left-width": row %3 == 0 ? 'thick': 'thin',
+					"border-bottom-width": row % 27 >= 18 ? 'thick':'thin',
 				}}
 				pattern="[1-9]*"
                 type  = "text"

@@ -43,6 +43,7 @@ class Sudoku extends Component {
             errors: 0
         }
         this.handleSquareChange = this.handleSquareChange.bind(this);
+        this.submitBoard = this.submitBoard.bind(this);
     }
     async componentDidMount() {
         var temppuzzle = makepuzzle()
@@ -71,12 +72,15 @@ class Sudoku extends Component {
     }
 
     submitBoard() {
-        if (this.state.board == this.state.solution) {
-            console.log("You Win")
+        console.log(this.state.board)
+        console.log(this.state.solution)
+        for (var i =0; i < 81; i++) {
+            if (this.state.board[i] != this.state.solution[i]) {
+                console.log('You Lose')
+                return
+            }
         }
-        else {
-            console.log("You Lose")
-        }
+        console.log('You Win')
     }
 
     render() {
