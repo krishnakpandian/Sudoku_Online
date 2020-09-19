@@ -40,7 +40,8 @@ class Sudoku extends Component {
                 ['','','','','','','','','']
             ],
             page: 0,
-            errors: 0
+            errors: 0,
+            game: true
         }
         this.handleSquareChange = this.handleSquareChange.bind(this);
         this.submitBoard = this.submitBoard.bind(this);
@@ -81,6 +82,7 @@ class Sudoku extends Component {
             }
         }
         console.log('You Win')
+        this.setState({game: true})
     }
 
     render() {
@@ -90,7 +92,7 @@ class Sudoku extends Component {
 			  <div class="sudoku-container">
                 Board
                 <div class="board">
-                { this.state.board !== this.state.solution ?
+                { this.state.game  ?
                     this.state.board.map( (value,row) => {
                         //console.log(row%9, row)
                         return(

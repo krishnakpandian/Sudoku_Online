@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import { render } from "react-dom";
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -11,9 +11,11 @@ import {
 import { config } from "./FirebaseConfig.js";
 
 export const FirebaseLogin = () => {
+  const [name, setName] = useState('');
   return (
     <>
     <FirebaseAuthProvider {...config} firebase={firebase}>
+    
       <div>
         <button
           onClick={() => {
@@ -33,9 +35,12 @@ export const FirebaseLogin = () => {
         </button>
         <FirebaseAuthConsumer>
           {({ isSignedIn, user, providerId }) => {
+            console.log({user}.user)
+            //setName(user.displayName)
             return (
               <pre style={{ height: 300, overflow: "auto" }}>
-                {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
+                {
+                  JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
               </pre>
             );
           }}
